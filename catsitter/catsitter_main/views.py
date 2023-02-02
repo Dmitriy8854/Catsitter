@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Questionnaire
 # Create your views here.
 # ice_cream/views.py
 from django.http import HttpResponse
@@ -9,7 +9,14 @@ from django.http import HttpResponse
 
 def index(request):
     template = 'catsitter_main/index.html'
-    return render(request, template)
+
+    questionnaires = Questionnaire.objects.order_by('-pub_date')[:10]
+    context = {
+        'questionnaires': questionnaires,
+
+    }
+    return render(request, template, context)
+
 
 #«Добавлены urls и view-функции»
 # Страница со списком мороженого

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'catsitter_main.apps.CatsitterMainConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'catsitter.urls'
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 TEMPLATES = [
     {
