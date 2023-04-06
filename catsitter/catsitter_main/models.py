@@ -15,5 +15,4 @@ class Questionnaire(models.Model):
         related_name='questionnaire'
     )
     def __str__(self):
-
-        return self.text
+        return self.name
