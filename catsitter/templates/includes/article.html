@@ -1,0 +1,18 @@
+<article>
+    <ul>
+      <li>
+        <h3>Автор: {{ post.author.get_full_name }}</h3>
+        
+      </li>
+      <li>
+        <h4>Дата публикации: {{ post.pub_date|date:"d E Y" }}</h4>
+        <h5>Всего символов: {{ post.text_lenght }}</h5>
+      </li>
+    </ul> 
+    <p>{{ post.description|linebreaksbr }}</p>
+   
+    <a href="{% url 'catsitter_main:catsitter_detail'  %}">подробная информация </a>
+    <br>
+    
+    {% if not forloop.last %}<hr>{% endif %}
+  </article>

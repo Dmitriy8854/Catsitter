@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+    {% block title %}
+     Профайл пользователя{{ user }}
+    {% endblock title %}
+    {% block content %}
+    <h2>Все посты пользователя {{ author }}</h2>
+      <h3>Всего постов: {{ count_post }}</h3>
+        {% for post in page_obj %}
+        {% include 'includes/article.html' %}
+           {% endfor %} 
+          <!-- Здесь подключён паджинатор --> 
+        {% include 'catsitter_main/includes/paginator.html' %}
+  {% endblock content %}

@@ -11,21 +11,24 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Подключен файл со стандартными стилями бустрап -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
-    <!--{% block title %}-->
-    <!--{% endblock %}    -->
-  </head>
-  <body>       
-    <header>
+    {% block title %}{% endblock title %}
+    </head>
+    <body>
+
       {% include 'includes/header.html' %}
-    </header>
-    <main>
-      {% block content %}
-        Контент не подвезли :
-      {% endblock %}
-    </main>
-    <footer>
-      {% include 'includes/footer.html' %} 
-    </footer>
+
+      <main>
+      
+        <div class="container py-5">
+        {% block content %}
+          {% for post in page_obj %}
+          {% endfor %}
+          {% include 'catsitter_main/includes/paginator.html' %}
+        {% endblock %}
+        </div>
+      </main>
+      
+    {% include 'includes/footer.html' %}
+      
   </body>
-</html> 
+</html>

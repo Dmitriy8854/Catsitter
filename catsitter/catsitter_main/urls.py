@@ -10,6 +10,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     # Страница со списком сортов мороженого
     path('catsitter/', views.catsitter_list, name='catsitter_list'),
+    path('profile/<str:username>/', views.profile, name='profile'),
     # Отдельная страница с информацией о сорте мороженого
-    path('catsitter/<int:pk>/', views.catsitter_detail, name='catsitter_list'),
+    path('catsitter/<int:pk>/', views.catsitter_detail, name='catsitter_detail'),
+    path('create/', views.post_create, name='post_create'),
 ] 

@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'catsitter_main.apps.CatsitterMainConfig',
     'users.apps.UsersConfig',
     'core.apps.CoreConfig',
+    'about.apps.AboutConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,6 +121,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+POSTS_NUM = 10
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
