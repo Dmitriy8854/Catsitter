@@ -38,12 +38,14 @@ def catsitter_list(request):
 def catsitter_detail(request, post_id):
     post = get_object_or_404(Questionnaire, pk=post_id)
     posts_count = Questionnaire.objects.filter(author=post.author).count()
+    author = User.objects.get(username=post.author)
     # Здесь код запроса к модели и создание словаря контекста
     context = {
         'post': post,
+        'author': author,
         'posts_count': posts_count,
     }
-    return render(request, 'catsitter_main/post_detail.html', context)
+    return render(request, 'catsitter_main/catsitter_detail.html', context)
 
 def profile(request, username):
     author = get_object_or_404(User, username=username)
@@ -73,7 +75,7 @@ def post_create(request):
 @login_required
 def post_edit(request, post_id):
     post = get_object_or_404(Questionnaire, pk=post_id)
-    form = PostForm(request.Post or None, instance=post)
+    form = PostForm(request.POST or None, instance=post)
     if form.is_valid():
         post = form.save()
         post.save()

@@ -10,16 +10,15 @@
             <li class="list-group-item">
               Дата публикации: {{ post.pub_date|date:"d E Y" }} 
             </li>
-              
-           
+
               </a>
             </li>
-            {% endif %}
+       
             <li class="list-group-item">
               Автор: {{ post.author.get_full_name }}
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              Всего постов автора:  {{ post.author.posts_count  }}
+              Всего постов автора:  {{ post.author.post.count }}
               <span ><!-- --></span>
             </li>
             <li class="list-group-item">
@@ -31,9 +30,17 @@
           </ul>
         </aside>
         <article class="col-12 col-md-9">
-          <p>
-            {{ post.description|linebreaksbr }}
-          </p>
-        </article>
-      </div>
+          <p>Локация: {{ post.location }}</p>
+          <p>Стоимость, руб.: {{ post.price }}</p>
+          <p>Описание: {{ post.description|linebreaksbr }}</p>
+
+          {% if user == post.author %}
+    <button type="submit" class="btn btn-primary">
+      <a class="btn btn-primary" href="{% url 'catsitter_main:post_edit' post.id %}">
+        Редактировать запись
+      </a>
+    </button>
+    {% endif %}
+  </article>
+</div>
 {% endblock %}

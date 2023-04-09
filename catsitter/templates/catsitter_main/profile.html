@@ -4,8 +4,8 @@
      Профайл пользователя{{ user }}
     {% endblock title %}
     {% block content %}
-    <h2>Все посты пользователя {{ author }}</h2>
-      <h3>Всего постов: {{ count_post }}</h3>
+    <h2>Все заказы пользователя {{ author }}</h2>
+      <h3>Всего заказов: {{ count_post }}</h3>
         {% for post in page_obj %}
         {% include 'includes/article.html' %}
            {% endfor %} 
