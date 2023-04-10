@@ -26,38 +26,23 @@
     </header>
     <main>
       {% block content %}
-      {% for post in page_obj %}
+     
       <!-- класс py-5 создает отступы сверху и снизу блока -->
       <div class="container py-5">     
         <h1>Возьмем кота в гости, пока вы в отъезде!</h1>
         <img src="{% static 'img/manul.jpg' %}" width="700" height="430" class="d-inline-block align-top" alt="">
-        <article>
-          {% for questionnaire in questionnaires %}
-          <ul>
-            <li>
-              Автор: {{ questionnaire.name }}
-            </li>
-            <li>
-              Дата публикации: {{ questionnaire.pub_date|date:"d E Y" }}
-            </li>
-            <li>
-              Стоимость: {{ questionnaire.price }}
-            </li>
-            <li>
-              Локация: {{ questionnaire.location }}
-            </li>
-          </ul>      
-          <p>
-            {{ questionnaire.description }}
-          </p>
-          <a href="group_list.html">все записи группы</a>
-          {% if not forloop.last %}<hr>{% endif %}
+        {% for post in page_obj %}
+
+         
+          {% include 'includes/article.html' %}
+        
+
         {% endfor %} 
         </article>
         <hr>
         <!-- под последним постом нет линии -->
       </div>  
-      {% endfor %}
+  
       {% endblock %}
     </main>
     <!-- Использованы классы бустрапа: -->

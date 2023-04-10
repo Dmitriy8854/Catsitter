@@ -15,5 +15,10 @@ class Questionnaire(models.Model):
         on_delete=models.CASCADE,
         related_name='questionnaire'
     )
+    image = models.ImageField(
+        'Картинка',
+        upload_to='catsitter_main/',
+        blank=True
+    )
     def __str__(self):
         return self.name

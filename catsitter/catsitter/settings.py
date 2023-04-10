@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sorl.thumbnail',
     'catsitter_main.apps.CatsitterMainConfig',
     'users.apps.UsersConfig',
     'core.apps.CoreConfig',
@@ -132,3 +133,5 @@ LOGIN_REDIRECT_URL = 'catsitter_main:index'
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # указываем директорию, в которую будут складываться файлы писем
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

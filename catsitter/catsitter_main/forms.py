@@ -10,8 +10,8 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Questionnaire
-        fields = ('description', 'location', 'price')
-        labels = {'description': 'Описание', 'location': 'Локация', 'price': 'цена'}
+        fields = ('description', 'location', 'price', 'image')
+        labels = {'description': 'Описание', 'location': 'Локация', 'price': 'цена', 'image': 'изображение'}
 
     def clean_text(self):
         data = self.cleaned_data['description']
