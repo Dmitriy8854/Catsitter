@@ -8,7 +8,7 @@ User = get_user_model()
 
 class PostForm(forms.ModelForm):
 
-    class Meta: 
+    class Meta:
         model = Questionnaire
         fields = ('description', 'location', 'price', 'image')
         labels = {'description': 'Описание', 'location': 'Локация', 'price': 'цена', 'image': 'изображение'}
